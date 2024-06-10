@@ -14,8 +14,8 @@ export default {
 
 const Template: StoryFn<typeof Input> = (args) => <Input {...args} />;
 
-export const Empty = Template.bind({});
-Empty.args = {
+export const Default = Template.bind({});
+Default.args = {
   state: 'empty',
   placeholder: 'Enter text...',
 };

@@ -35,6 +35,7 @@ This project was bootstrapped with Create React App and containerized using Dock
 
 <!-- Project Setup -->
 First, clone the repository to your local machine:
+
 git clone https://git@github.com:gilbert428/myportfolio.git
 
 <!-- Docker -->
@@ -42,9 +43,12 @@ This application is containerized using Docker. You can build and run the applic
 
 <!-- Building the Docker Image -->
 To build the Docker image, navigate to the project directory and run:
+
 docker image build -t lagman_gilbert_coding_assignment12:latest .
+
 This command builds a Docker image with the tag lagman_gilbert_coding_assignment12.
 
 <!-- Running the Docker Container -->
 To run the Docker container, use the following command:
+
 docker run -dp 8083:6006 --name lagman_gilbert_coding_assignment12 lagman_gilbert_coding_assignment12:latest
