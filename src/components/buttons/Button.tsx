@@ -31,3 +31,8 @@ const Button: React.FC<ButtonProps> = ({ primary = false, disabled = false, back
 );
 
 export default Button;
+
+// added 19-June-2024
+export function sum(a: number, b: number) {
+  return a + b;
+ }
