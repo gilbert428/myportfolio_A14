@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import { Image } from './Image';
 
 test("Image has correct border color when primary prop is true", () => {
-  const { getByAltText } = render(<Image primary={true} src="test.jpg" alt="test image" />);
+  const { getByAltText } = render(<Image src="test.jpg" alt="test image" />);
   const img = getByAltText('test image');
-  expect(img).toHaveStyle('border: 2px solid blue');
+  expect(img).toHaveStyle('border: 2px solid gray');
 });

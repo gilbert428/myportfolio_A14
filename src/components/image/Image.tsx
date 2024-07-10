@@ -30,8 +30,8 @@ const ImageStyled = styled.img<ImageProps>`
   }
 `;
 
-export const Image: React.FC<ImageProps> = ({ primary = false, large = false, disabled = false, backgroundColor, src, alt, onClick }) => (
-  <ImageStyled primary={primary} large={large} disabled={disabled} backgroundColor={backgroundColor} src={src} alt={alt} onClick={onClick} />
+export const Image: React.FC<ImageProps> = ({  disabled = false, backgroundColor, src, alt, onClick }) => (
+  <ImageStyled disabled={disabled} backgroundColor={backgroundColor} src={src} alt={alt} onClick={onClick} />
 );
 
 // export default Image;
