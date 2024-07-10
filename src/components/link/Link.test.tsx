@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import Link from './Link';
 
 test("Link has correct color when primary prop is true", () => {
-  const { getByTestId } = render(<Link primary={true} href="#">Test Link</Link>);
+  const { getByTestId } = render(<Link primary="true" href="#">Test Link</Link>);
   const link = getByTestId('LinkElement');
   expect(link).toHaveStyle('color: darkblue');
 });
