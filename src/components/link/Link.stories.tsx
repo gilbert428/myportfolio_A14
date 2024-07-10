@@ -1,5 +1,6 @@
-// Link.stories.tsx
+// src/components/Link/Link.stories.tsx
 import { StoryFn, Meta } from '@storybook/react';
+import { within, userEvent } from '@storybook/testing-library';
 import Link from './Link';
 
 export default {
@@ -29,6 +30,12 @@ Primary.args = {
   href: '#',
 };
 
+Primary.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const linkElement = canvas.getByText('Primary Link');
+  await userEvent.click(linkElement);
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
@@ -36,10 +43,23 @@ Disabled.args = {
   href: '#',
 };
 
+Disabled.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const linkElement = canvas.getByText('Disabled Link');
+  await userEvent.click(linkElement);
+};
+
 export const Hover = Template.bind({});
 Hover.args = {
   primary: true,
   children: 'Hover Link',
   href: '#',
-  backgroundColor: 'lightblue', // Example background color for hover state
+  backgroundColor: 'lightblue',
+};
+
+Hover.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const linkElement = canvas.getByText('Hover Link');
+  await userEvent.hover(linkElement);
+  await userEvent.unhover(linkElement);
 };

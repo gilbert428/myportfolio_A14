@@ -1,4 +1,6 @@
+// src/components/Input/Input.stories.tsx
 import { StoryFn, Meta } from '@storybook/react';
+import { within, userEvent } from '@storybook/testing-library';
 import Input from './Input';
 
 export default {
@@ -20,10 +22,23 @@ Default.args = {
   placeholder: 'Enter text...',
 };
 
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const inputElement = canvas.getByPlaceholderText('Enter text...');
+  await userEvent.type(inputElement, 'Test');
+};
+
 export const Focused = Template.bind({});
 Focused.args = {
   state: 'focused',
   placeholder: 'Enter text...',
+};
+
+Focused.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const inputElement = canvas.getByPlaceholderText('Enter text...');
+  inputElement.focus();
+  // Optional: Add any further interactions or assertions if needed
 };
 
 export const Filled = Template.bind({});
@@ -32,9 +47,22 @@ Filled.args = {
   value: 'Filled text',
 };
 
+Filled.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const inputElement = canvas.getByDisplayValue('Filled text');
+  await userEvent.clear(inputElement);
+  await userEvent.type(inputElement, 'New text');
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   state: 'disabled',
   placeholder: 'Enter text...',
   disabled: true,
+};
+
+Disabled.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const inputElement = canvas.getByPlaceholderText('Enter text...');
+  await userEvent.click(inputElement);
 };
