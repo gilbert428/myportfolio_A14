@@ -1,5 +1,5 @@
 # pull official base image
-FROM node:lts-bookworm
+FROM node:21-bullseye
 
 #set working directory
 WORKDIR /lagman_gilbert_ui_garden_build_checks/
