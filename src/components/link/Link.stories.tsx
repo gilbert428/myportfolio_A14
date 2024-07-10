@@ -1,51 +1,44 @@
-// src/components/Link/Link.stories.tsx
-import { StoryFn, Meta } from '@storybook/react';
-import { within, userEvent } from '@storybook/testing-library';
+// Link.stories.tsx
+import type { Meta, StoryFn } from '@storybook/react';
 import Link from './Link';
+import { userEvent, within } from '@storybook/testing-library';
 
-export default {
-  title: 'Link',
+const meta: Meta = {
+  title: 'Components/Link',
   component: Link,
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     primary: { control: 'boolean' },
-    disabled: { control: 'boolean' },
     backgroundColor: { control: 'color' },
     children: { control: 'text' },
     href: { control: 'text' },
   },
-} as Meta;
+};
+
+export default meta;
 
 const Template: StoryFn<typeof Link> = (args) => <Link {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
   children: 'Link',
-  href: '#',
+  };
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const linkElement = canvas.getByText('Link');
+  await userEvent.click(linkElement);
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
   children: 'Primary Link',
-  href: '#',
-};
-
+  };
 Primary.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const linkElement = canvas.getByText('Primary Link');
-  await userEvent.click(linkElement);
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
-  children: 'Disabled Link',
-  href: '#',
-};
-
-Disabled.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  const linkElement = canvas.getByText('Disabled Link');
   await userEvent.click(linkElement);
 };
 
@@ -53,10 +46,8 @@ export const Hover = Template.bind({});
 Hover.args = {
   primary: true,
   children: 'Hover Link',
-  href: '#',
-  backgroundColor: 'lightblue',
+   backgroundColor: 'lightblue',
 };
-
 Hover.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const linkElement = canvas.getByText('Hover Link');

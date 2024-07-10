@@ -37,8 +37,7 @@ Focused.args = {
 Focused.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const inputElement = canvas.getByPlaceholderText('Enter text...');
-  inputElement.focus();
-  // Optional: Add any further interactions or assertions if needed
+  await userEvent.click(inputElement);
 };
 
 export const Filled = Template.bind({});

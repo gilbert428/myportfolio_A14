@@ -1,4 +1,4 @@
-// Link.tsx
+// src/components/Link/Link.tsx
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { LinkProps } from './Link.types';
@@ -9,16 +9,8 @@ const LinkStyled = styled.a<LinkProps>`
   text-decoration: none;
   cursor: pointer;
 
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      color: lightgray;
-      cursor: not-allowed;
-      pointer-events: none;
-    `}
-
   &:hover {
-    color: ${({ primary, disabled }) => !disabled && (primary ? 'darkblue' : 'darkgray')};
+    color: ${({ primary }) => (primary ? 'darkblue' : 'darkgray')};
   }
 
   ${({ backgroundColor }) =>
@@ -36,8 +28,8 @@ const LinkStyled = styled.a<LinkProps>`
   }
 `;
 
-const Link: React.FC<LinkProps> = ({ primary = false, disabled = false, backgroundColor, children, onClick, href }) => (
-  <LinkStyled primary={primary} disabled={disabled} backgroundColor={backgroundColor} onClick={onClick} href={href}>
+const Link: React.FC<LinkProps> = ({ primary = false, backgroundColor, children, onClick, href }) => (
+  <LinkStyled primary={primary} backgroundColor={backgroundColor} onClick={onClick} href={href} data-testid="LinkElement">
     {children}
   </LinkStyled>
 );
