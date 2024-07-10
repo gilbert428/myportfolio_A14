@@ -67,7 +67,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "jsdom": "^24.1.0",
     "storybook": "^8.1.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.2.2",
