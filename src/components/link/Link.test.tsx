@@ -1,5 +1,6 @@
 // link.test.ts
 import "@testing-library/jest-dom";
+import React from 'react';
 import { render } from '@testing-library/react';
 import Link from './Link';
 
