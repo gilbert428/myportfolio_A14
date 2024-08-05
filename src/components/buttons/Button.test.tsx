@@ -14,7 +14,7 @@ import { render } from '@testing-library/react';
 import Button from './Button';
 
 test("Button has correct background color when primary prop is true", () => {
-  const { getByText } = render(<Button primary="true">Click Me</Button>);
+  const { getByText } = render(<Button primary={true}>Click Me</Button>);
   const button = getByText('Click Me');
   expect(button).toHaveStyle('background-color: darkblue');
 });
