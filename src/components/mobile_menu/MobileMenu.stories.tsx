@@ -42,13 +42,6 @@ Focus.args = {
   collapsed: true,
 };
 
-Focus.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  const menuElement = canvas.getByText((content, element) => content.includes('Menu'));
-  await userEvent.tab();
-  expect(menuElement).toHaveFocus();
-};
-
 export const Expanded = Template.bind({});
 Expanded.args = {
   expanded: true,

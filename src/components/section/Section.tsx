@@ -1,4 +1,3 @@
-// src/components/Section/Section.tsx
 import React from 'react';
 import styled from 'styled-components';
 import design from '../../assets/design.jpg';
@@ -6,7 +5,7 @@ import design2 from '../../assets/design2.jpg';
 import design3 from '../../assets/design3.jpg';
 
 const SectionStyled = styled.section`
-  background-image: black;
+  background-color: black;
   background-size: cover;
   background-position: center;
   color: white;
@@ -49,24 +48,32 @@ const SectionStyled = styled.section`
   }
 `;
 
-const Section: React.FC = () => {
+type SectionProps = {
+  children?: React.ReactNode;
+};
+
+const Section: React.FC<SectionProps> = ({ children }) => {
   return (
     <SectionStyled>
-      <h2>
-        HI, I’M GILBERT <br />
-        aspiring web designer & developer
-      </h2>
-      <p>
-        Hello! I'm a passionate and aspiring web designer eager to bring
-        creativity and fresh ideas to the digital world. I may be new to the
-        field, but my dedication to learning and creating beautiful,
-        functional websites is boundless.
-      </p>
-      <div className="image-container">
-        <img src={design} alt="Image 1" />
-        <img src={design2} alt="Image 2" />
-        <img src={design3} alt="Image 3" />
-      </div>
+      {children || (
+        <>
+          <h2>
+            HI, I’M GILBERT <br />
+            aspiring web designer & developer
+          </h2>
+          <p>
+            Hello! I'm a passionate and aspiring web designer eager to bring
+            creativity and fresh ideas to the digital world. I may be new to the
+            field, but my dedication to learning and creating beautiful,
+            functional websites is boundless.
+          </p>
+          <div className="image-container">
+            <img src={design} alt="Image 1" />
+            <img src={design2} alt="Image 2" />
+            <img src={design3} alt="Image 3" />
+          </div>
+        </>
+      )}
     </SectionStyled>
   );
 };
